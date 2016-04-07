@@ -2,7 +2,7 @@
 * @Author: manrajsingh
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-07 20:55:54
+* @Last Modified time: 2016-04-07 22:16:38
 */
 
 (function(root, factory){
@@ -14,8 +14,8 @@
 		root.microbar = factory();
 	}
 })(this, function(){
-	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;} .progress{width: 0;height: 100%;background-color: #000000;}';
-	
+	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;} .microbar #progress{width: 0;height: 100%;background-color: #000000;}';
+	var ctr = 0;
 	function addStyleSheet(){
 		if(document.getElementById('microbarstyles') != undefined){
 			return;
@@ -31,21 +31,21 @@
 		}
 		document.head.insertBefore(style, null);
 	}
-	
+
 	return function microbar(args){
 		args = args || {};
+		if(!args.hasOwnProperty("id")){
+			throw new Error('You need to provide an ID for your microbar');
+		}
 		var current = 0,
 			color = args.color || '#000000',
-			speed = args.speed || 0.3,
+			speed = args.speed || 1,
 			looping = args.looping || false,
 			position = args.position || 'top';
 		addStyleSheet();
 		var microbar = {
-			element : '',
+			id : args.id,
 			moveTo: function(percentage){
-
-			},
-			setColor: function(color){
 
 			},
 			getSpeed: function(){
