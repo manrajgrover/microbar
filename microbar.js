@@ -2,7 +2,7 @@
 * @Author: manrajsingh
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-08 00:47:02
+* @Last Modified time: 2016-04-08 01:33:19
 */
 
 (function(root, factory){
@@ -14,7 +14,7 @@
 		root.microbar = factory();
 	}
 })(this, function(){
-	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;} .microbar .mprogress{width: 0;height: 100%;transition: width 1s;background-color: #000000;}';
+	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;} .microbar .mprogress{width: 0;height: 100%;transition: width 1s;background-color: #000000;} .microbar .mprogress .mshadow{width: 93px;position: relative;box-shadow: 0 0 10px #000000;height: 100%;float: right;transform: rotate(2deg) translate(0px,-3px);}';
 	function addStyleSheet(){
 		if(document.getElementById('microbarstyles') != undefined){
 			return;
@@ -32,9 +32,11 @@
 	}
 
 	function initialize(id, color, position){
-		var bar = document.createElement('div'), progress = document.createElement('div');
+		var bar = document.createElement('div'), progress = document.createElement('div'), shadow = document.createElement('div');
 		bar.id = id, bar.className = 'microbar';
 		progress.classList.add('mprogress') , progress.style.color = color, progress.style.width = position+'%';
+		shadow.classList.add('mshadow');
+		progress.appendChild(shadow);
 		bar.appendChild(progress);
 		return bar;
 	}
@@ -61,7 +63,7 @@
 				if(typeof percentage !== 'number'){
 					throw new TypeError('Percentage should be a number.');
 				}
-				if(percentage > 100 || percentage < 0){
+				else if(percentage > 100 || percentage < 0){
 					throw new RangeError('Percentage should be between 0 and 100.');
 				}
 				bar.getElementsByClassName('mprogress')[0].style.width = percentage+'%';
