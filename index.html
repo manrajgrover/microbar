@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<script src='microbar.js'></script>
+		<style>
+			body{
+				margin: 0;
+			}
+		</style>
 	</head>
 	<body>
+		<script src='microbar.js'></script>
+		<script>
+			var b = new microbar({id: 'lol'});
+			b.moveTo(50);
+			setTimeout(function() {
+				b.moveTo(90);
+				setTimeout(function() {
+					b.moveTo(10);
+				}, 5000);
+			}, 5000);
+		</script>
 	</body>
 </html>

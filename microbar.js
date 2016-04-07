@@ -2,7 +2,7 @@
 * @Author: manrajsingh
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-07 22:16:38
+* @Last Modified time: 2016-04-08 00:47:02
 */
 
 (function(root, factory){
@@ -14,8 +14,7 @@
 		root.microbar = factory();
 	}
 })(this, function(){
-	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;} .microbar #progress{width: 0;height: 100%;background-color: #000000;}';
-	var ctr = 0;
+	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;} .microbar .mprogress{width: 0;height: 100%;transition: width 1s;background-color: #000000;}';
 	function addStyleSheet(){
 		if(document.getElementById('microbarstyles') != undefined){
 			return;
@@ -32,21 +31,40 @@
 		document.head.insertBefore(style, null);
 	}
 
+	function initialize(id, color, position){
+		var bar = document.createElement('div'), progress = document.createElement('div');
+		bar.id = id, bar.className = 'microbar';
+		progress.classList.add('mprogress') , progress.style.color = color, progress.style.width = position+'%';
+		bar.appendChild(progress);
+		return bar;
+	}
+
 	return function microbar(args){
 		args = args || {};
-		if(!args.hasOwnProperty("id")){
-			throw new Error('You need to provide an ID for your microbar');
+		
+		if(!args.hasOwnProperty('id') || typeof args['id'] !== 'string'){
+			throw new Error('You need to provide an ID of type string for your microbar.');
 		}
-		var current = 0,
+		var position = 50,
 			color = args.color || '#000000',
 			speed = args.speed || 1,
 			looping = args.looping || false,
-			position = args.position || 'top';
+			id = args.id;
+
 		addStyleSheet();
+		var bar = initialize(id, color,position);
+		document.getElementsByTagName('body')[0].appendChild(bar);
+
 		var microbar = {
 			id : args.id,
 			moveTo: function(percentage){
-
+				if(typeof percentage !== 'number'){
+					throw new TypeError('Percentage should be a number.');
+				}
+				if(percentage > 100 || percentage < 0){
+					throw new RangeError('Percentage should be between 0 and 100.');
+				}
+				bar.getElementsByClassName('mprogress')[0].style.width = percentage+'%';
 			},
 			getSpeed: function(){
 				return speed;
@@ -59,12 +77,6 @@
 			},
 			setLooping: function(loop){
 				looping = loop;
-			},
-			getPosition: function(){
-				return position;
-			},
-			setPosition: function(pos){
-				position = pos;
 			}
 		};
 		return microbar;
