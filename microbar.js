@@ -2,7 +2,7 @@
 * @Author: manrajsingh
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-08 01:33:19
+* @Last Modified time: 2016-04-08 12:33:18
 */
 
 (function(root, factory){
@@ -14,7 +14,19 @@
 		root.microbar = factory();
 	}
 })(this, function(){
-	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;} .microbar .mprogress{width: 0;height: 100%;transition: width 1s;background-color: #000000;} .microbar .mprogress .mshadow{width: 93px;position: relative;box-shadow: 0 0 10px #000000;height: 100%;float: right;transform: rotate(2deg) translate(0px,-3px);}';
+	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;}'
+			+ '.microbar .mprogress{width: 0;height: 100%;transition: width 1s;background-color: #000000;}'
+			+ '.microbar .mprogress .mshadow{width: 93px;position: relative;box-shadow: 0 0 10px #000000;height: 100%;float: right;transform: rotate(2deg) translate(0px,-3px);}';
+
+	function transitionEndEventName () {
+		var el = document.createElement('div'), transitions = { 'transition':'transitionend', 'OTransition':'otransitionend', 'MozTransition':'transitionend', 'WebkitTransition':'webkitTransitionEnd'};
+		for(var i in transitions) {
+			if (transitions.hasOwnProperty(i) && el.style[i] !== undefined) {
+				return transitions[i];
+			}
+		}
+	}
+
 	function addStyleSheet(){
 		if(document.getElementById('microbarstyles') != undefined){
 			return;
@@ -31,6 +43,13 @@
 		document.head.insertBefore(style, null);
 	}
 
+	function isCompleted(id){
+		console.log('Event Completed');
+		var el = document.getElementById(id).getElementsByClassName('mprogress')[0];
+		var width = el.style.width;
+		console.log(width);
+	}
+
 	function initialize(id, color, position){
 		var bar = document.createElement('div'), progress = document.createElement('div'), shadow = document.createElement('div');
 		bar.id = id, bar.className = 'microbar';
@@ -38,6 +57,12 @@
 		shadow.classList.add('mshadow');
 		progress.appendChild(shadow);
 		bar.appendChild(progress);
+		document.getElementsByTagName('body')[0].appendChild(bar);
+		var transitionEnd = transitionEndEventName();
+		progress.addEventListener(transitionEnd, function(){
+			var width = this.style.width;
+			console.log(width);
+		});
 		return bar;
 	}
 
@@ -55,7 +80,6 @@
 
 		addStyleSheet();
 		var bar = initialize(id, color,position);
-		document.getElementsByTagName('body')[0].appendChild(bar);
 
 		var microbar = {
 			id : args.id,
