@@ -1,8 +1,8 @@
 /*
-* @Author: manrajsingh
+* @Author: ManrajGrover
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-12 15:04:07
+* @Last Modified time: 2016-04-12 15:05:32
 */
 
 (function(root, factory){
@@ -20,6 +20,7 @@
 	function getEquivalentTime(speed){
 		return Math.round(1/speed).toString()+'s';
 	}
+
 	function transitionEndEventName () {
 		var el = document.createElement('div'), transitions = { 'transition':'transitionend', 'OTransition':'otransitionend', 'MozTransition':'transitionend', 'WebkitTransition':'webkitTransitionEnd'};
 		for(var i in transitions) {
@@ -102,7 +103,6 @@
 				}
 				else if(looping == true){
 					throw new Error('Moving Progress Bar is not allowed while looping.');
-					return;
 				}
 				bar.getElementsByClassName('mprogress')[0].style.width = percentage+'%';
 			},
