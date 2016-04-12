@@ -10,12 +10,15 @@
 	<body>
 		<script src='microbar.js'></script>
 		<script>
-			var b = new microbar({id: 'lol'});
+			var b = new microbar({id: 'lol',color: 'red'});
 			b.moveTo(50);
 			setTimeout(function() {
 				b.moveTo(90);
 				setTimeout(function() {
 					b.moveTo(0);
+					setTimeout(function() {
+						b.moveTo(100);
+					}, 5000);
 				}, 5000);
 			}, 5000);
 		</script>
