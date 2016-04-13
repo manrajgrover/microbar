@@ -2,7 +2,7 @@
 * @Author: ManrajGrover
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-12 15:05:32
+* @Last Modified time: 2016-04-14 00:49:18
 */
 
 (function(root, factory){
@@ -17,8 +17,9 @@
 	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;}'
 			+ '.microbar .mprogress{width: 0;height: 100%;background-color: #000000;}'
 			+ '.microbar .mprogress .mshadow{width: 93px;position: relative;height: 100%;float: right;transform: rotate(2deg) translate(0px,-3px);}';
+	
 	function getEquivalentTime(speed){
-		return Math.round(1/speed).toString()+'s';
+		return (0.5+Math.round(1/speed)).toString()+'s';
 	}
 
 	function transitionEndEventName () {
@@ -35,8 +36,7 @@
 			return;
 		}
 		var style = document.createElement('style');
-		style.type = 'text/css';
-		style.id = 'microbarstyles';
+		style.type = 'text/css', style.id = 'microbarstyles';
 		if(style.styleSheet){
 			style.styleSheet.cssText = css;
 		}
@@ -46,11 +46,11 @@
 		document.head.insertBefore(style, null);
 	}
 
-	function initialize(id, color, position, speed){
+	function initialize(id, color, percentage, speed){
 		addStyleSheet();
 		var bar = document.createElement('div'), progress = document.createElement('div'), shadow = document.createElement('div');
 		bar.id = id, bar.className = 'microbar';
-		progress.classList.add('mprogress') , progress.style.backgroundColor = color, progress.style.width = position+'%', progress.style.transition = 'width '+getEquivalentTime(speed);
+		progress.classList.add('mprogress') , progress.style.backgroundColor = color, progress.style.width = percentage+'%', progress.style.transition = 'width '+getEquivalentTime(speed);
 		shadow.classList.add('mshadow'), shadow.style.boxShadow = "0 0 10px "+color;
 		progress.appendChild(shadow);
 		bar.appendChild(progress);
@@ -74,34 +74,28 @@
 		if(!args.hasOwnProperty('id') || typeof args['id'] !== 'string'){
 			throw new Error('You need to provide an ID of type string for your microbar.');
 		}
-		if(args.speed > 10 || args.speed < 1){
-			throw new RangeError('Speed should be an integer between 1 and 10.');
+		if(args.hasOwnProperty('speed') && (typeof args.speed !== 'number' || args.speed > 10 || args.speed < 1)){
+			throw new Error('Speed should be an integer between 1 and 10.');
 		}
-		if(args.hasOwnProperty('position') && typeof args.position !== 'number'){
-			throw new TypeError('Position should be a number.');
-		}
-		else if(args.position > 100 || args.position < 0){
-			throw new RangeError('Position should be between 0 and 100.');
+		if(args.hasOwnProperty('percentage') && (typeof args.percentage !== 'number' || args.percentage> 100 || args.percentage < 0)){
+			throw new Error('Percentage should be an integer between 0 and 100.');
 		}
 
-		var position = args.position || 0,
+		var percentage = args.percentage || 0,
 			color = args.color || '#000000',
 			speed = args.speed || 10,
 			looping = args.looping || false,
 			id = args.id;
 
-		var bar = initialize(id, color, position, speed);
+		var bar = initialize(id, color, percentage, speed);
 
-		var microbar = {
+		return {
 			id : args.id,
 			moveTo: function(percentage){
-				if(typeof percentage !== 'number'){
-					throw new TypeError('Percentage should be a number.');
+				if(typeof percentage !== 'number' || percentage > 100 || percentage < 0){
+					throw new Error('Percentage should be an integer between 0 and 100.');
 				}
-				else if(percentage > 100 || percentage < 0){
-					throw new RangeError('Percentage should be between 0 and 100.');
-				}
-				else if(looping == true){
+				if(looping == true){
 					throw new Error('Moving Progress Bar is not allowed while looping.');
 				}
 				bar.getElementsByClassName('mprogress')[0].style.width = percentage+'%';
@@ -123,6 +117,5 @@
 				looping = loop;
 			}
 		};
-		return microbar;
 	};
 });
