@@ -8,9 +8,10 @@
 		</style>
 	</head>
 	<body>
+		<div id="trying" style="width: 100px;height: 100px;position: relative;margin: 0 auto;background-color: #e5e5e5"></div>
 		<script src='microbar.js'></script>
 		<script>
-			var b = new microbar({id: 'lol',color: 'red', speed: 5});
+			var b = new microbar({id: 'lol',color: 'red', speed: 2});
 			b.moveTo(50);
 			setTimeout(function() {
 				b.moveTo(90);
@@ -18,9 +19,9 @@
 					b.moveTo(0);
 					setTimeout(function() {
 						b.moveTo(100);
-					}, 2000);
-				}, 2000);
-			}, 2000);
+					}, 1000);
+				}, 1000);
+			}, 1000);
 		</script>
 	</body>
 </html>

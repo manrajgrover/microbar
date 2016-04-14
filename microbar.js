@@ -2,7 +2,7 @@
 * @Author: ManrajGrover
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-14 00:49:18
+* @Last Modified time: 2016-04-14 23:55:25
 */
 
 (function(root, factory){
@@ -16,10 +16,18 @@
 })(this, function(){
 	var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;}'
 			+ '.microbar .mprogress{width: 0;height: 100%;background-color: #000000;}'
-			+ '.microbar .mprogress .mshadow{width: 93px;position: relative;height: 100%;float: right;transform: rotate(2deg) translate(0px,-3px);}';
-	
+			+ '.microbar .mprogress .mshadow{width: 3%;position: relative;height: 100%;float: right;transform: rotate(2deg) translate(0px,-3px);}';
 	function getEquivalentTime(speed){
 		return (0.5+Math.round(1/speed)).toString()+'s';
+	}
+
+	function isColor(color){
+		var el = document.createElement('div');
+		el.style.backgroundColor = color;
+		if(el.style.backgroundColor.length == 0){
+			return false;
+		}
+		return true;
 	}
 
 	function transitionEndEventName () {
@@ -48,21 +56,20 @@
 
 	function initialize(id, color, percentage, speed){
 		addStyleSheet();
-		var bar = document.createElement('div'), progress = document.createElement('div'), shadow = document.createElement('div');
+		var bar = document.createElement('div'), progress = document.createElement('div'), shadow = document.createElement('div'), time = getEquivalentTime(speed);
 		bar.id = id, bar.className = 'microbar';
-		progress.classList.add('mprogress') , progress.style.backgroundColor = color, progress.style.width = percentage+'%', progress.style.transition = 'width '+getEquivalentTime(speed);
+		progress.classList.add('mprogress') , progress.style.backgroundColor = color, progress.style.width = percentage+'%', progress.style.transition = 'width '+time+',opacity 0.3s ease 0.2s';
 		shadow.classList.add('mshadow'), shadow.style.boxShadow = "0 0 10px "+color;
+		if(percentage == 0){
+			progress.style.opacity = 0;
+		}
 		progress.appendChild(shadow);
 		bar.appendChild(progress);
-		document.getElementsByTagName('body')[0].appendChild(bar);
 		var transitionEnd = transitionEndEventName();
 		progress.addEventListener(transitionEnd, function(){
 			var width = this.style.width;
-			if(width == '100%'){
-				console.log(width);
-			}
-			else if(width == '0%'){
-				console.log(width);
+			if(width == '100%' || width == '0%'){
+				this.style.opacity = 0;
 			}
 		});
 		return bar;
@@ -84,21 +91,35 @@
 		var percentage = args.percentage || 0,
 			color = args.color || '#000000',
 			speed = args.speed || 10,
-			looping = args.looping || false,
 			id = args.id;
 
 		var bar = initialize(id, color, percentage, speed);
-
+		if(args.target) {
+			bar.style.position = 'relative';
+			document.getElementById(args.target).insertBefore(bar, document.getElementById(args.target).firstChild);
+		}
+		else {
+			bar.style.position = 'fixed';
+			document.getElementsByTagName('body')[0].appendChild(bar);
+		}
 		return {
-			id : args.id,
+			id: args.id,
 			moveTo: function(percentage){
 				if(typeof percentage !== 'number' || percentage > 100 || percentage < 0){
 					throw new Error('Percentage should be an integer between 0 and 100.');
 				}
-				if(looping == true){
-					throw new Error('Moving Progress Bar is not allowed while looping.');
-				}
+				bar.getElementsByClassName('mprogress')[0].style.opacity = 1;
 				bar.getElementsByClassName('mprogress')[0].style.width = percentage+'%';
+			},
+			getColor: function(){
+				return color;
+			},
+			setColor: function(color){
+				if(!isColor(color)){
+					throw new Error('Please check color entered');
+				}
+				bar.getElementsByClassName('mprogress')[0].style.backgroundColor = color;
+				bar.getElementsByClassName('mshadow')[0].style.boxShadow = "0 0 10px "+color;
 			},
 			getSpeed: function(){
 				return speed;
@@ -109,12 +130,6 @@
 				}
 				speed = s;
 				bar.getElementsByClassName('mprogress')[0].style.transition = 'width '+getEquivalentTime(s);
-			},
-			getLooping: function(){
-				return looping;
-			},
-			setLooping: function(loop){
-				looping = loop;
 			}
 		};
 	};
