@@ -2,7 +2,7 @@
 * @Author: ManrajGrover
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-15 00:07:04
+* @Last Modified time: 2016-04-15 12:46:13
 */
 
 (function(root, factory){
@@ -18,7 +18,7 @@
             + '.microbar .mprogress{width: 0;height: 100%;background-color: #000000;}'
             + '.microbar .mprogress .mshadow{width: 3%;position: relative;height: 100%;float: right;transform: rotate(2deg) translate(0px,-3px);}';
     function getEquivalentTime(speed){
-        return (0.5+Math.round(1/speed)).toString()+'s';
+        return (0.5 + Math.round(1/speed)).toString()+'s';
     }
 
     function isColor(color){
@@ -58,7 +58,7 @@
         addStyleSheet();
         var bar = document.createElement('div'), progress = document.createElement('div'), shadow = document.createElement('div'), time = getEquivalentTime(speed);
         bar.id = id, bar.className = 'microbar';
-        progress.classList.add('mprogress') , progress.style.backgroundColor = color, progress.style.width = percentage+'%', progress.style.transition = 'width '+time+',opacity 0.3s ease 0.2s';
+        progress.classList.add('mprogress') , progress.style.backgroundColor = color, progress.style.width = percentage+'%', progress.style.transition = 'width '+time+' ease, opacity 0.3s ease';
         shadow.classList.add('mshadow'), shadow.style.boxShadow = "0 0 10px "+color;
         if(percentage == 0){
             progress.style.opacity = 0;
@@ -68,7 +68,7 @@
         var transitionEnd = transitionEndEventName();
         progress.addEventListener(transitionEnd, function(){
             var width = this.style.width;
-            if(width == '100%' || width == '0%'){
+            if(width == '100%'){
                 this.style.opacity = 0;
             }
         });
