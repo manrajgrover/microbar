@@ -2,7 +2,7 @@
 * @Author: ManrajGrover
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-16 12:38:33
+* @Last Modified time: 2016-04-16 14:18:14
 */
 
 (function(root, factory){
@@ -16,7 +16,7 @@
 })(this, function(){
     var css = '.microbar{width: 100%;height: 2px;z-index: 9999;top:0;background-color: transparent;}'
             + '.microbar .mprogress{width: 0;height: 100%;background-color: #000000;}'
-            + '.microbar .mprogress .mshadow{width: 3%;position: relative;height: 100%;float: right;transform: rotate(2deg) translate(0px,-3px);}';
+            + '.microbar .mprogress .mshadow{width: 1%;position: relative;height: 100%;float: right;}';
     function getEquivalentTime(speed){
         return (0.5 + Math.round(1/speed)).toString()+'s';
     }
