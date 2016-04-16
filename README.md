@@ -6,6 +6,22 @@ A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progr
 
 ![Gif](https://raw.githubusercontent.com/ManrajGrover/microbar/master/Screenshots/giphy.gif)
 
+## Installation
+
+Download and extract [latest release](https://github.com/ManrajGrover/microbar/releases) or install using package manager:
+
+[npm](https://www.npmjs.com/package/microbar)
+
+```
+$ npm install microbar
+```
+[bower](http://bower.io/)
+
+```
+$ bower install microbar
+```
+
+
 ## Usage
 
 ### How to Load?
