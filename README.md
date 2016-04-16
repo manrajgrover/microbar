@@ -29,3 +29,12 @@ var microbar = new microbar( settings );
 * `speed` `<integer>`: (Optional) Speed of your **progress** bar ( between `1` and `10` ). By default, it will be `10`.
 * `target` `<id>`: (Optional) ID of your targetted DOM element. By default, it will be fixed to `top` of document.
 
+### Methods available
+
+* `moveTo( percentage )`: Set percentage width of `progress` bar.
+* `getColor( )`: Get color of that `progress` bar.
+* `setColor( color )`: Set color of `progress` bar.
+* `getSpeed( )`: Get speed of `progress` bar.
+* `setSpeed( speed )`: Set speed of `progress` bar.
+
+If you would like to add more methods/customizations, please open an [issue](https://github.com/ManrajGrover/microbar/issues).
