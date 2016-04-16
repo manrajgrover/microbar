@@ -38,3 +38,32 @@ var microbar = new microbar( settings );
 * `setSpeed( speed )`: Set speed of `progress` bar.
 
 If you would like to add more methods/customizations, please open an [issue](https://github.com/ManrajGrover/microbar/issues).
+
+### Example
+
+```js
+
+var settings = {
+    percentage: 50,
+    color: 'red',
+    speed: 2,
+    target: 'lolCat'
+};
+
+var bar = new microbar( settings);
+
+// Move bar forward
+bar.moveTo(80);
+
+// Get color of progress bar
+bar.getColor();
+
+// Set color of progress bar
+bar.setColor('#141414');
+
+// Get speed of progress bar
+bar.getSpeed();
+
+// Set speed of progress bar
+bar.setSpeed(3);
+```
