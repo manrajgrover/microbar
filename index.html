@@ -8,10 +8,10 @@
 		</style>
 	</head>
 	<body>
-		<div id="trying" style="width: 100px;height: 100px;position: relative;margin: 0 auto;background-color: #e5e5e5"></div>
+		<div id="trying" style="width: 100px;height: 100px;position: relative;margin: 50px auto 0px auto;background-color: #e5e5e5"></div>
 		<script src='microbar.js'></script>
 		<script>
-			var b = new microbar({id: 'lol',color: 'red', speed: 2});
+			var b = new microbar({id: 'lol',color: 'red', speed: 2, target: 'trying'});
 			b.moveTo(0);
 			setTimeout(function() {
 				b.moveTo(90);
@@ -19,6 +19,16 @@
 					b.moveTo(0);
 					setTimeout(function() {
 						b.moveTo(100);
+					}, 1000);
+				}, 1000);
+			}, 1000);
+			var c = new microbar({id: 'loll',color: 'blue', speed: 2});
+			setTimeout(function() {
+				c.moveTo(90);
+				setTimeout(function() {
+					c.moveTo(0);
+					setTimeout(function() {
+						c.moveTo(100);
 					}, 1000);
 				}, 1000);
 			}, 1000);
