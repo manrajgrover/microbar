@@ -8,27 +8,30 @@
 		</style>
 	</head>
 	<body>
-		<div id="trying" style="width: 50%;height: 100px;position: relative;margin: 50px auto 0px auto;background-color: #e5e5e5"></div>
+		<div id="test" style="width: 50%;height: 6em;position: relative;margin: 50px auto 0px auto;background-color: #e5e5e5;line-height: 6em;color: #141414;text-align:center;font-family:'Arial';font-size:25px;"></div>
 		<script src='microbar.js'></script>
 		<script>
-			var b = new microbar({id: 'lol',color: 'red', speed: 2, target: 'trying'});
+			var b = new microbar({color: 'blue', speed: 2});
+			var c = new microbar({color: 'red', speed: 2, target: 'test'});
 			b.moveTo(0);
 			setTimeout(function() {
-				b.moveTo(90);
+				b.moveTo(50);
 				setTimeout(function() {
-					b.moveTo(0);
+					b.moveTo(80);
 					setTimeout(function() {
 						b.moveTo(100);
-					}, 1000);
-				}, 1000);
-			}, 1000);
-			var c = new microbar({id: 'loll',color: 'blue', speed: 2});
-			setTimeout(function() {
-				c.moveTo(90);
-				setTimeout(function() {
-					c.moveTo(0);
-					setTimeout(function() {
-						c.moveTo(100);
+						setTimeout(function() {
+							c.moveTo(50);
+							setTimeout(function() {
+								c.moveTo(80);
+								setTimeout(function() {
+									c.moveTo(100);
+									setTimeout(function(){
+										//document.getElementById('test').innerHTML += "<b>Content Loaded!</b>";
+									}, 1000);
+								}, 1000);
+							}, 1000);
+						}, 1000);
 					}, 1000);
 				}, 1000);
 			}, 1000);
