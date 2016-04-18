@@ -32,6 +32,12 @@ Link `microbar.js` in your HTML
 <script src="path/to/microbar.js"></script>
 ```
 
+or require it:
+
+```js
+var microbar = require('path/to/microbar');
+```
+
 ### Generate microbar
 
 ```js
