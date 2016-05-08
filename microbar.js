@@ -2,7 +2,7 @@
 * @Author: ManrajGrover
 * @Date:   2016-04-06 15:58:03
 * @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-04-16 14:18:14
+* @Last Modified time: 2016-05-08 13:29:47
 */
 
 (function(root, factory){
@@ -76,7 +76,7 @@
         args = args || {};
         if(args.hasOwnProperty('speed') && (typeof args.speed !== 'number' || args.speed > 10 || args.speed < 1))
             throw new Error('Speed should be an integer between 1 and 10.');
-        if(args.hasOwnProperty('percentage') && (typeof args.percentage !== 'number' || args.percentage> 100 || args.percentage < 0))
+        if(args.hasOwnProperty('percentage') && (typeof args.percentage !== 'number' || args.percentage > 100 || args.percentage < 0))
             throw new Error('Percentage should be an integer between 0 and 100.');
 
         var percentage = args.percentage || 0,
@@ -98,7 +98,7 @@
                 if(typeof p !== 'number' || p > 100 || p < 0)
                     throw new Error('Percentage should be an integer between 0 and 100.');
                 progress.style.opacity = 1;
-                progress.style.width = p+'%';
+                progress.style.width = p + '%';
             },
             getColor: function(){
                 return color;
@@ -113,7 +113,7 @@
             },
             setSpeed: function(s){
                 if(s > 10 || s < 1)
-                    throw new RangeError('Speed should be an integer between 1 and 10');
+                    throw new RangeError('Speed should be an integer between 1 and 10.');
                 speed = s;
                 progress.style.transition = 'width '+getEquivalentTime(s);
             }
