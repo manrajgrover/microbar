@@ -1,6 +1,6 @@
 # microbar
 
-[![npm version](https://badge.fury.io/js/microbar.svg)](https://www.npmjs.com/package/microbar) [![npm](https://img.shields.io/npm/dt/organizeit.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/organizeit) ![awesome](https://img.shields.io/badge/awesome-yes-green.svg)
+[![npm version](https://badge.fury.io/js/microbar.svg)](https://www.npmjs.com/package/microbar) [![npm](https://img.shields.io/npm/dt/microbar.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/microbar) ![awesome](https://img.shields.io/badge/awesome-yes-green.svg)
 
 A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progress bars for Ajax'y applications. Inspired by YouTube and Github.
 
