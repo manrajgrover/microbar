@@ -1,10 +1,3 @@
-/*
-* @Author: ManrajGrover
-* @Date:   2016-04-06 15:58:03
-* @Last Modified by:   Manraj Singh
-* @Last Modified time: 2016-05-08 13:29:47
-*/
-
 (function(root, factory){
     if (typeof define === 'function' && define.amd) {
         define(factory);
