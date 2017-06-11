@@ -4,7 +4,7 @@
 
 A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progress bars for Ajax'y applications. Inspired by YouTube and Github.
 
-![Gif](https://raw.githubusercontent.com/ManrajGrover/microbar/master/Screenshots/giphy.gif)
+![Gif](https://raw.githubusercontent.com/ManrajGrover/microbar/master/assets/demo.gif)
 
 ## Installation
 
