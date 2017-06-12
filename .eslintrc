@@ -9,5 +9,9 @@
     "class-methods-use-this": "off",
     "no-bitwise": "off",
     "no-restricted-syntax": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
   }
 }
