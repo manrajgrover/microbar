@@ -6,7 +6,7 @@ const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 
 gulp.task('build', () => {
-  browserify({ entries: './src/index.js', debug: true })
+  browserify({ entries: './src/index.js', debug: true, standalone: 'microbar' })
     .transform('babelify', { presets: ['es2015'] })
     .bundle()
     .pipe(source('microbar.js'))
@@ -14,7 +14,7 @@ gulp.task('build', () => {
 });
 
 gulp.task('build-prod', () => {
-  browserify({ entries: './src/index.js' })
+  browserify({ entries: './src/index.js', standalone: 'microbar' })
     .transform('babelify', { presets: ['es2015'] })
     .bundle()
     .pipe(source('microbar.js'))
