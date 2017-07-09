@@ -36,13 +36,13 @@ Link `microbar.js` in your HTML
 or require it:
 
 ```js
-var microbar = require('path/to/microbar');
+const microbar = require('path/to/microbar');
 ```
 
 ### Generate microbar
 
 ```js
-var microbar = new microbar( settings );
+const microbar = new microbar( settings );
 ```
 
 #### settings
