@@ -68,14 +68,14 @@ If you would like to add more methods/customizations, please open an [issue](htt
 
 ```js
 
-var settings = {
+const settings = {
     percentage: 50,
     color: 'red',
     speed: 2,
     target: 'lolCat'
 };
 
-var bar = new microbar( settings);
+const bar = new microbar(settings);
 
 // Move bar forward
 bar.moveTo(80);
