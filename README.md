@@ -1,8 +1,9 @@
 # microbar
 
-[![npm version](https://badge.fury.io/js/microbar.svg)](https://www.npmjs.com/package/microbar) [![npm](https://img.shields.io/npm/dt/microbar.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/microbar) ![awesome](https://img.shields.io/badge/awesome-yes-green.svg)
+[![Build Status](https://travis-ci.org/ManrajGrover/microbar.svg?branch=master)](https://travis-ci.org/ManrajGrover/microbar)  [![Build status](https://ci.appveyor.com/api/projects/status/jr9rgx05r0y7fv70/branch/master?svg=true)](https://ci.appveyor.com/project/ManrajGrover/microbar/branch/master)
+ [![npm version](https://badge.fury.io/js/microbar.svg)](https://www.npmjs.com/package/microbar) [![npm](https://img.shields.io/npm/dt/microbar.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/microbar) ![awesome](https://img.shields.io/badge/awesome-yes-green.svg)
 
-A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progress bars for Ajax'y applications. Inspired by YouTube and Github.
+> 🎉 A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progress bars for Ajax'y applications. Inspired by YouTube and Github.
 
 ![Gif](https://raw.githubusercontent.com/ManrajGrover/microbar/master/assets/demo.gif)
 
@@ -35,13 +36,13 @@ Link `microbar.js` in your HTML
 or require it:
 
 ```js
-var microbar = require('path/to/microbar');
+const microbar = require('path/to/microbar');
 ```
 
 ### Generate microbar
 
 ```js
-var microbar = new microbar( settings );
+const microbar = new microbar( settings );
 ```
 
 #### settings
@@ -67,14 +68,14 @@ If you would like to add more methods/customizations, please open an [issue](htt
 
 ```js
 
-var settings = {
+const settings = {
     percentage: 50,
     color: 'red',
     speed: 2,
     target: 'lolCat'
 };
 
-var bar = new microbar( settings);
+const bar = new microbar(settings);
 
 // Move bar forward
 bar.moveTo(80);
