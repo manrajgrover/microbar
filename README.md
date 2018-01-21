@@ -93,6 +93,36 @@ bar.getSpeed();
 bar.setSpeed(3);
 ```
 
+## Development
+
+Run:
+
+```sh
+$ git clone https://github.com/ManrajGrover/microbar.git
+$ cd microbar
+$ npm install
+```
+
+This will setup the library dependencies for you.
+
+To lint your code, run
+
+```sh
+$ npm run lint
+```
+
+To build for development purpose, run
+
+```sh
+$ gulp build
+```
+
+To build for production purpose, run
+
+```sh
+$ gulp build-prod
+```
+
 ## License
 
 [MIT](https://github.com/ManrajGrover/microbar/blob/master/LICENSE) © [ManrajGrover](https://github.com/ManrajGrover)
