@@ -114,13 +114,13 @@ $ npm run lint
 To build for development purpose, run
 
 ```sh
-$ gulp build
+$ npm run dev
 ```
 
 To build for production purpose, run
 
 ```sh
-$ gulp build-prod
+$ npm run prod
 ```
 
 ## License
