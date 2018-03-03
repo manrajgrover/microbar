@@ -1,8 +1,8 @@
 {
   "name": "microbar",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progress bars for Ajax'y applications. Inspired by YouTube and Github.",
-  "main": "src/microbar.js",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./src/",
     "dev": "webpack",
