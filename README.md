@@ -13,13 +13,19 @@ Download and extract [latest release](https://github.com/ManrajGrover/microbar/r
 
 [npm](https://www.npmjs.com/package/microbar)
 
-```
+```sh
 $ npm install microbar
 ```
 [bower](http://bower.io/)
 
-```
+```sh
 $ bower install microbar
+```
+
+Or use `unpkg`:
+
+```html
+<script src="https://unpkg.com/microbar/dist/microbar.min.js"></script>
 ```
 
 
