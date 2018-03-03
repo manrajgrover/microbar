@@ -1,6 +1,6 @@
 {
   "name": "microbar",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progress bars for Ajax'y applications. Inspired by YouTube and Github.",
   "main": "src/index.js",
   "scripts": {
@@ -8,6 +8,9 @@
     "dev": "webpack",
     "prod": "webpack -p"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ManrajGrover/microbar"
