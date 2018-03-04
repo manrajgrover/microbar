@@ -28,6 +28,11 @@ Or use `unpkg`:
 <script src="https://unpkg.com/microbar/dist/microbar.min.js"></script>
 ```
 
+Or use `jsdeliver`:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/microbar/dist/microbar.min.js"></script>
+```
 
 ## Usage
 
