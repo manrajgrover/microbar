@@ -1,8 +1,8 @@
 {
   "name": "microbar",
   "description": "A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progress bars for Ajax'y applications. Inspired by YouTube and Github.",
-  "version": "0.1.4",
-  "main": "microbar.js",
+  "version": "0.1.7",
+  "main": "dist/microbar.js",
   "authors": [
     "Manraj Singh Grover <manrajsinghgrover@gmail.com> (http://manrajsingh.in/)"
   ],
