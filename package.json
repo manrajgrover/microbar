@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ManrajGrover/microbar"
+    "url": "git+https://github.com/manrajgrover/microbar"
   },
   "keywords": [
     "microbar",
@@ -25,10 +25,10 @@
     "ajax"
   ],
   "author": "Manraj Singh Grover <manrajsinghgrover@gmail.com> (http://manrajsingh.in/)",
-  "homepage": "https://github.com/ManrajGrover/microbar#readme",
+  "homepage": "https://github.com/manrajgrover/microbar#readme",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ManrajGrover/microbar/issues"
+    "url": "https://github.com/manrajgrover/microbar/issues"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

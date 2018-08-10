@@ -1,15 +1,15 @@
 # microbar
 
-[![Build Status](https://travis-ci.org/ManrajGrover/microbar.svg?branch=master)](https://travis-ci.org/ManrajGrover/microbar)  [![Build status](https://ci.appveyor.com/api/projects/status/jr9rgx05r0y7fv70/branch/master?svg=true)](https://ci.appveyor.com/project/ManrajGrover/microbar/branch/master)
+[![Build Status](https://travis-ci.org/manrajgrover/microbar.svg?branch=master)](https://travis-ci.org/manrajgrover/microbar)  [![Build status](https://ci.appveyor.com/api/projects/status/jr9rgx05r0y7fv70/branch/master?svg=true)](https://ci.appveyor.com/project/manrajgrover/microbar/branch/master)
  [![npm version](https://badge.fury.io/js/microbar.svg)](https://www.npmjs.com/package/microbar) [![npm](https://img.shields.io/npm/dt/microbar.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/microbar) ![awesome](https://img.shields.io/badge/awesome-yes-green.svg)
 
 > 🎉 A zero dependency, 1.2kb g-zipped, lightweight JavaScript Library for slim progress bars for Ajax'y applications. Inspired by YouTube and Github.
 
-![Gif](https://raw.githubusercontent.com/ManrajGrover/microbar/master/assets/demo.gif)
+![Gif](https://raw.githubusercontent.com/manrajgrover/microbar/master/assets/demo.gif)
 
 ## Installation
 
-Download and extract [latest release](https://github.com/ManrajGrover/microbar/releases) or install using package manager:
+Download and extract [latest release](https://github.com/manrajgrover/microbar/releases) or install using package manager:
 
 [npm](https://www.npmjs.com/package/microbar)
 
@@ -73,7 +73,7 @@ const microbar = new microbar( settings );
 * `getSpeed( )`: Get speed of `progress` bar.
 * `setSpeed( speed )`: Set speed of `progress` bar.
 
-If you would like to add more methods/customizations, please open an [issue](https://github.com/ManrajGrover/microbar/issues).
+If you would like to add more methods/customizations, please open an [issue](https://github.com/manrajgrover/microbar/issues).
 
 ### Example
 
@@ -109,7 +109,7 @@ bar.setSpeed(3);
 Run:
 
 ```sh
-$ git clone https://github.com/ManrajGrover/microbar.git
+$ git clone https://github.com/manrajgrover/microbar.git
 $ cd microbar
 $ npm install
 ```
@@ -136,4 +136,4 @@ $ npm run prod
 
 ## License
 
-[MIT](https://github.com/ManrajGrover/microbar/blob/master/LICENSE) © [ManrajGrover](https://github.com/ManrajGrover)
+[MIT](https://github.com/manrajgrover/microbar/blob/master/LICENSE) © [manrajgrover](https://github.com/manrajgrover)
