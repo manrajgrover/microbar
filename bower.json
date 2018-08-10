@@ -7,7 +7,7 @@
     "Manraj Singh Grover <manrajsinghgrover@gmail.com> (http://manrajsingh.in/)"
   ],
   "bugs": {
-    "url": "https://github.com/ManrajGrover/microbar/issues"
+    "url": "https://github.com/manrajgrover/microbar/issues"
   },
   "license": "MIT",
   "keywords": [
@@ -22,5 +22,5 @@
     "loader",
     "ajax"
   ],
-  "homepage": "https://github.com/ManrajGrover/microbar"
+  "homepage": "https://github.com/manrajgrover/microbar"
 }
